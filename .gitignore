@@ -1,0 +1,51 @@
+# Python specific ignores
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+*.pyo
+*.pyd
+*.pyo
+*.pdb
+*.pyo
+*.pyw
+*.whl
+
+# Flask specific ignores
+instance/
+env/
+venv/
+*.env
+*.flaskenv
+
+# Logs
+*.log
+*.out
+*.err
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env.bak/
+.env/
+*.env
+
+# IDE or editor-specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Mac OS
+.DS_Store
+
+# Miscellaneous
+*.bak
+*.swp
+*.tmp
