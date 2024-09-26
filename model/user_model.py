@@ -13,4 +13,7 @@ class user_model():
         # Business Logic
         self.cur.execute("SELECT * FROM users")
         result = self.cur.fetchall()
-        return json.dumps(result)
+        if(len(result)>0):
+            return json.dumps(result)
+        else:
+            return "No Data Found"
