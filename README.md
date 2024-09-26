@@ -1,5 +1,4 @@
 REST API CRUD Operations with Python-Flask and MySQL (Version-1)
-For video tutorial SUBSCRIBE to, TechFryDay
 
 Download and setup
 Step-1: Creating & activating venv Windows:
