@@ -13,18 +13,17 @@ class user_model():
 
     # GET METHOD
     def user_getall_model(self):
-       
         self.cur.execute("SELECT * FROM users")
         result = self.cur.fetchall()
         if(len(result)>0):
-            return json.dumps(result)
+            return ({"payload": result}, 200)
         else:
-            return "No Data Found"
+            return ({"Message": "No Data Found"}, 204)
 
     # POST METHOD 
     def user_addone_model(self, data):
         self.cur.execute(f"INSERT INTO users(name, email, phone, role, password) VALUES('{data['name']}', '{data['email']}', '{data['phone']}', '{data['role']}', '{data['password']}') ")
-        return "Profile Created Sucessfully.........."
+        return ({"Message": "Profile Created Sucessfully.........."}, 201)
     
     # PUT METHOD
     def user_update_model(self, data):
@@ -33,13 +32,17 @@ class user_model():
             self.cur.execute(f"SELECT * FROM users WHERE id={data['id']}")
             updated_data = self.cur.fetchone()  # Get the updated row
             print(f"Updated Data: {updated_data}")
-            return "Profile Updated Sucessfully.........."
+            return ({"Message": "Profile Updated Sucessfully.........."}, 201)
+        
         else:
-            return "Nothing to update!!"
+            return ({"Message": "Nothing to update!!"}, 204)
+        
+        
     # DELETE METHOD    
     def user_delete_model(self, id):
         self.cur.execute(f"DELETE FROM users WHERE id={id}")
         if(self.cur.rowcount>0):
-            return "Profile Deleted Sucessfully.........."
+            return ({"Message": "Profile Deleted Sucessfully.........."}, 200)
         else:
-            return "This id doesn't Exists!!"
+            return ({"Message": "This id doesn't Exists!!"}, 202)
+        
