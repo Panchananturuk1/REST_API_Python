@@ -23,6 +23,11 @@ def user_addone_controller():
 def user_update_controller():
     return obj.user_update_model(request.form)
 
+# PATCH METHOD
+@app.route("/user/patch/<id>", methods=["PATCH"])
+def user_patch_controller(id):
+    return obj.user_patch_model(request.form, id)
+
 # DELETE METHOD
 @app.route("/user/delete/<id>", methods=["DELETE"])
 def user_delete_controller(id):

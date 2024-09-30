@@ -50,11 +50,22 @@ class user_model():
             updated_data = self.cur.fetchone()  # Get the updated row
             print(f"Updated Data: {updated_data}")
             return make_response({"Message": "Profile Updated Sucessfully.........."}, 201)
-        
         else:
             return make_response({"Message": "Nothing to update!!"}, 204)
         
-        
+    # PATCH METHOD    
+    def user_patch_model(self, data, id):
+        qry = "UPDATE users SET  "
+        print("This is patch method")
+        for key in data:
+            qry = qry + f"{key}='{data[key]}',"
+        qry = qry[:-1] + f" WHERE id={id}"
+        self.cur.execute(qry)
+        if(self.cur.rowcount>0):
+            return make_response({"Message": "Profile Updated Sucessfully.........."}, 201)
+        else:
+            return make_response({"Message": "Nothing to update!!"}, 204)
+    
     # DELETE METHOD    
     def user_delete_model(self, id):
         self.cur.execute(f"DELETE FROM users WHERE id={id}")
